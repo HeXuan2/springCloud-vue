@@ -1,0 +1,23 @@
+server:
+  port: 8081
+hm:
+  swagger:
+    title: 商品管理接口文档
+    package: com.hmall.item.controller
+  db:
+    database: hm-item
+
+#feign:
+#  okhttp:
+#    enabled: true # 开启OKHttp连接池支持
+#  sentinel:
+#    enabled: true
+feign:
+  sentinel:
+    enabled: true # 开启feign对sentinel的支持
+spring:
+  cloud:
+    sentinel:
+      transport:
+        dashboard: localhost:8090
+      http-method-specify: true #请求方式前缀

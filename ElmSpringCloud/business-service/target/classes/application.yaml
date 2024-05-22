@@ -1,0 +1,11 @@
+server:
+  port: 8083
+hm:
+  swagger:
+    title: 商家管理接口文档
+    package: com.hmall.business.controller
+  db:
+    database: hm-business
+
+
+

@@ -1,0 +1,36 @@
+server:
+  port: 8082
+  tomcat:
+    threads:
+      max: 25 # 允许的最大线程数
+    accept-count: 25 # 最大排队等待数量
+    max-connections: 100 # 允许的最大连接
+
+feign:
+  okhttp:
+    enabled: true # 开启OKHttp连接池支持
+  sentinel:
+    enabled: true
+#    rules:
+hm:
+  swagger:
+    title: 购物车服务接口文档
+    package: com.hmall.cart.controller
+  db:
+    database: hm-cart
+
+spring:
+  cloud:
+    sentinel:
+      transport:
+        dashboard: localhost:8090
+      http-method-specify: true #请求方式前缀
+      datasource:
+        ds2: #配置文件的数据源名称
+          nacos:
+            server-addr: 192.168.145.143:8848
+            data-id: degrade.json
+            group-id: DEFAULT_GROUP
+            data-type: json
+            rule-type: degrade
+
